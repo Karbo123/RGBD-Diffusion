@@ -1,0 +1,9 @@
+[submodule "third_party/recon"]
+	path = third_party/recon
+	url = git@github.com:Karbo123/recon.git
+[submodule "third_party/nvdiffrast"]
+	path = third_party/nvdiffrast
+	url = git@github.com:NVlabs/nvdiffrast.git
+[submodule "third_party/latent-diffusion"]
+	path = third_party/latent-diffusion
+	url = git@github.com:Karbo123/latent-diffusion.git
