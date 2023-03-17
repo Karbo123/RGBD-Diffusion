@@ -417,6 +417,7 @@ def get_unet():
     for name, module in unet.named_modules():
         if isinstance(module, nn.GroupNorm):
             module.num_groups = 1
+            print(f"convert GN to LN for module: {name}")
     return unet
 
 

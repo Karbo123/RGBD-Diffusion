@@ -47,7 +47,9 @@ conda activate RGBD2
 
 # install packages
 pip install torch # tested on 1.12.1+cu116
-pip install torchvision opencv-python einops trimesh diffusers ninja open3d
+pip install torchvision
+pip install matplotlib # tested on 3.5.3
+pip install opencv-python einops trimesh diffusers ninja open3d
 
 # install dependencies
 cd ./third_party/nvdiffrast && pip install . && cd ../..
@@ -72,15 +74,22 @@ To launch training, simply run:
 ```bash
 CUDA_VISIBLE_DEVICES=0 python -m recon.runner.train --cfg config/cfg_RGBD2.py
 ```
-If you want to train with multiple GPUs, try setting, e.g. `CUDA_VISIBLE_DEVICES=0,1,2,3`.
+If you want to train with multiple GPUs, try setting, e.g. `CUDA_VISIBLE_DEVICES=0,1,2,3`. 
+We note that it visualizes the training process by producing some TensorBoard files.
 
 
 # Inference
 
 To generate a test scene, simply run:
 ```bash
-CUDA_VISIBLE_DEVICES=0 python experiments/run.py --ind_scenes 0
+CUDA_VISIBLE_DEVICES=0 python experiments/run.py
 ```
+
+By additionally providing `--interactive`, you can control the generation process via manual control using a GUI.
+Our GUI code uses Matplotlib, so you can even run the code on a remote server, and use x-server (e.g. MobaXterm) to enable graphic control!
+
+![GUI](https://i.328888.xyz/2023/03/17/LD7h3.png)
+
 
 # About
 
